@@ -1,0 +1,6 @@
+flows:
+
+  bank_location:
+    description: Provide the location and address of the Bank of Rasa
+    steps:
+      - action: utter_location
