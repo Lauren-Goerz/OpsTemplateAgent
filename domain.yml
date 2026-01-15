@@ -2,10 +2,10 @@ version: "3.1"
 
 responses:
   utter_greeting:
-    - text: "Welcome to the Bank of Rasa! How can I help you today?"
+    - text: "Welcome to the Rasa Helpdesk! How can I help you today?"
 
   utter_location:
-    - text: "The Bank of Rasa is located at Schönhauser Allee 175, 10119 Berlin."
+    - text: "Rasa is located at Schönhauser Allee 175, 10119 Berlin."
 
 
   utter_free_chitchat_response:
@@ -14,7 +14,7 @@ responses:
         rephrase: True
         rephrase_prompt: |
           The following is a conversation with an AI assistant built with Rasa.
-          The assistant can help the user transfer money.
+          The assistant is part of the Rasa Helpdesk and helps users with their questions.
           The assistant is helpful, creative, clever, and very friendly.
           The user is making small talk, and the assistant should respond, keeping things light.
           Context / previous conversation with the user:
