@@ -93,14 +93,16 @@ rasa train
 
 ### Run the Agent
 
-Start the Rasa shell to interact with your agent:
-```bash
-rasa shell
-```
-
-Or use the development inspector:
+Start the Rasa development inspector for the full testing experience:
 ```bash
 rasa inspect
+```
+
+This will start the Rasa server with the development inspector, providing a comprehensive testing interface. Visit `http://localhost:5005/webhooks/socketio/inspect.html` in your browser to interact with the agent.
+
+Alternatively, you can use the simple shell interface:
+```bash
+rasa shell
 ```
 
 ## Project Structure
@@ -140,13 +142,6 @@ This guide shows you how to add a new flow to answer questions about the Rasa Va
 Edit `domain.yml` and add a new response in the `responses:` section:
 
 ```yaml
-responses:
-  utter_greeting:
-    - text: "Welcome to the Rasa Helpdesk! How can I help you today?"
-
-  utter_location:
-    - text: "Rasa is located at Schönhauser Allee 175, 10119 Berlin."
-
   utter_vacation_policy:
     - text: "Rasa employees receive 25 days of paid vacation per year, plus public holidays. Vacation requests should be submitted through our HR portal at least 2 weeks in advance for approval."
 ```
@@ -157,11 +152,6 @@ Edit `data/flows.yml` and add a new flow:
 
 ```yaml
 flows:
-  company_location:
-    description: Provide the location and address of the company
-    steps:
-      - action: utter_location
-
   vacation_policy:
     description: Provide information about the Rasa vacation policy
     steps:
@@ -178,13 +168,13 @@ rasa train
 
 ### Step 4: Test the Flow
 
-Start the Rasa shell and test your new flow:
+Start the Rasa development UI to test your new flow with the full testing experience:
 
 ```bash
-rasa shell
+rasa inspect
 ```
 
-Then try asking questions like:
+Visit `http://localhost:5005/webhooks/socketio/inspect.html` in your browser, then try asking questions like:
 - "What is the vacation policy?"
 - "How many vacation days do we get?"
 - "Tell me about vacation at Rasa"
